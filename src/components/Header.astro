@@ -6,19 +6,15 @@ import GitHub from "./icons/GitHub.astro";
 import Email from "./icons/Email.astro";
 import Phone from "./icons/Phone.astro";
 import Globe from "./icons/Globe.astro";
-
 import { Image } from "astro:assets";
 import avatarImage from "../assets/avatar.jpeg";
-
 const { name, about, personalWebsiteUrl, contact, location, locationLink } =
   CV_DATA;
 ---
 
 <header class="flex items-center justify-between">
   <div class="flex-1 space-y-1.5">
-    <h1 class="text-2xl font-bold" id="cv-name">
-      {name}
-    </h1>
+    <h1 class="text-2xl font-bold" id="cv-name">{name}</h1>
     <p
       class="max-w-md text-pretty font-mono text-sm text-foreground/80 print:text-[12px]"
     >
@@ -32,7 +28,6 @@ const { name, about, personalWebsiteUrl, contact, location, locationLink } =
         href={locationLink}
         target="_blank"
         rel="noopener noreferrer"
-        aria-label={`Location: ${location}`}
       >
         <Globe class="size-3" />
         {location}
@@ -40,7 +35,6 @@ const { name, about, personalWebsiteUrl, contact, location, locationLink } =
     </p>
     <div
       class="flex list-none gap-x-1 pt-1 font-mono text-sm text-foreground/80 print:hidden"
-      aria-label="Contact links"
     >
       <LinkButton href={personalWebsiteUrl} ariaLabel="Website">
         <Globe class="size-4" />
@@ -67,41 +61,35 @@ const { name, about, personalWebsiteUrl, contact, location, locationLink } =
     <div
       class="hidden gap-x-2 font-mono text-sm text-foreground/80 print:flex print:flex-wrap gap-y-1 print:text-[12px]"
     >
-      <a class="underline hover:text-foreground/70" href={personalWebsiteUrl}>
-        {personalWebsiteUrl}
-      </a>
+      <a class="underline hover:text-foreground/70" href={personalWebsiteUrl}
+        >{personalWebsiteUrl}</a
+      >
       <span aria-hidden="true">|</span>
       <a
         class="underline hover:text-foreground/70"
-        href={`mailto:${contact.email}`}
+        href={`mailto:${contact.email}`}>{contact.email}</a
       >
-        {contact.email}
-      </a>
       <span aria-hidden="true">|</span>
-      <a class="underline hover:text-foreground/70" href={`tel:${contact.tel}`}>
-        {contact.tel}
-      </a>
-      <a
-        class="underline hover:text-foreground/70"
-        href={contact.social[0].url}
+      <a class="underline hover:text-foreground/70" href={`tel:${contact.tel}`}
+        >{contact.tel}</a
       >
-        {contact.social[0].url}
-      </a>
       <span aria-hidden="true">|</span>
-      <a
-        class="underline hover:text-foreground/70"
-        href={contact.social[1].url}
+      <a class="underline hover:text-foreground/70" href={contact.social[0].url}
+        >{contact.social[0].url}</a
       >
-        {contact.social[1].url}
-      </a>
+      <span aria-hidden="true">|</span>
+      <a class="underline hover:text-foreground/70" href={contact.social[1].url}
+        >{contact.social[1].url}</a
+      >
     </div>
   </div>
   <span
-    class="relative flex shrink-0 overflow-hidden rounded-xl size-28"
+    class="relative flex shrink-0 overflow-hidden rounded-xl"
+    style="width: 112px; height: 140px;"
     aria-hidden="true"
   >
     <Image
-      class="aspect-square h-full w-full"
+      class="h-full w-full object-cover object-top"
       alt={`${name}'s profile picture`}
       src={avatarImage}
     />
